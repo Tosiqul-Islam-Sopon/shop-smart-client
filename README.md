@@ -53,4 +53,4 @@
   REACT_APP_FIREBASE_APP_ID=your_app_id
 4. Run the project:
    ```bash
-   npm start
+   npm run dev
