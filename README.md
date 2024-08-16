@@ -35,7 +35,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/shop-smart-client.git
+   git clone https://github.com/Tosiqul-Islam-Sopon/shop-smart-client.git
    cd shop-smart-client
 2. Install dependencies:
    ```bash
