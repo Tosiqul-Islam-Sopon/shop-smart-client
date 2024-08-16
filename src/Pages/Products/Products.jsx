@@ -104,10 +104,10 @@ const Products = () => {
     }
 
     return (
-        <div>
+        <div className="px-4 md:px-6 lg:px-8">
             {/* Search Field */}
-            <form onSubmit={handleSearchSubmit}>
-                <div className="flex flex-col md:flex-row justify-between items-center mx-6 my-4 gap-4">
+            <form onSubmit={handleSearchSubmit} className="mb-4">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="flex w-full">
                         <input
                             type="text"
@@ -126,7 +126,7 @@ const Products = () => {
             </form>
 
             {/* Filter and Sort Options */}
-            <div className="flex flex-col md:flex-row justify-between items-center mx-6 my-4 gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
                 <select value={selectedBrand} onChange={handleBrandChange} className="px-4 py-2 border rounded-lg w-full md:w-auto">
                     <option value="">All Brands</option>
                     {brands.map((brand) => (
@@ -145,7 +145,7 @@ const Products = () => {
                     <option value="50-100">$50 - $100</option>
                     <option value="100-200">$100 - $200</option>
                     <option value="200-500">$200 - $500</option>
-                    <option value="500+">$500+</option>
+                    <option value="500">$500+</option>
                 </select>
                 <select value={sortOption} onChange={handleSortChange} className="px-4 py-2 border rounded-lg w-full md:w-auto">
                     <option value="">Sort By</option>
@@ -156,14 +156,14 @@ const Products = () => {
             </div>
 
             {searchQuery && (
-                <p className="mx-6 my-4 text-lg font-semibold text-gray-700 text-center">
+                <p className="text-lg font-semibold text-gray-700 text-center mb-4">
                     Showing results for {searchQuery}
                 </p>
             )}
 
             {/* Product Grid or No Products Found Message */}
             {productData.products.length > 0 ? (
-                <div className="grid grid-cols-3 gap-6 mx-6 my-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
                     {productData.products.map((product) => (
                         <ProductCard product={product} key={product._id} />
                     ))}
@@ -176,7 +176,7 @@ const Products = () => {
 
             {/* Pagination */}
             {productData.products.length > 0 && (
-                <div className="flex flex-col items-center mx-4 my-6">
+                <div className="flex flex-col items-center">
                     <div className="flex justify-between items-center w-full mb-4">
                         <button
                             className="px-4 py-2 bg-gray-300 text-black rounded-lg hover:bg-gray-400"
@@ -185,7 +185,7 @@ const Products = () => {
                         >
                             Previous
                         </button>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 justify-center">
                             {[...Array(productData.pagination.totalPages)].map((_, index) => (
                                 <button
                                     key={index + 1}
