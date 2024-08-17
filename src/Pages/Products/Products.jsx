@@ -6,6 +6,7 @@ import ProductCard from './ProductCard';
 const Products = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState('');
+    const [searchText, setSearchText] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [priceRange, setPriceRange] = useState('');
@@ -103,6 +104,8 @@ const Products = () => {
         return <p>Error loading data.</p>;
     }
 
+    console.log(productData);
+
     return (
         <div className="px-4 md:px-6 lg:px-8">
             {/* Search Field */}
@@ -113,6 +116,8 @@ const Products = () => {
                             type="text"
                             placeholder="Search by product name..."
                             name="search"
+                            value={searchText}
+                            onChange={(e) => setSearchText(e.target.value)}
                             className="flex-grow px-4 py-2 border rounded-l-lg"
                         />
                         <button
@@ -157,7 +162,7 @@ const Products = () => {
 
             {searchQuery && (
                 <p className="text-lg font-semibold text-gray-700 text-center mb-4">
-                    Showing results for {searchQuery}
+                    Total products found for {searchQuery} is {productData?.pagination?.totalProducts}
                 </p>
             )}
 
